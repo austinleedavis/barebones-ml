@@ -1,0 +1,33 @@
+Config:
+  _target_: src.config.Config
+  cache_dir: data
+  log_dir: logs
+  ckpt_dir: checkpoints
+  prof_dir: logs/profiler
+  perf_dir: logs/perf
+  seed: 42
+
+ModuleConfig:
+  _target_: src.config.ModuleConfig
+  model_name: "textattack/bert-base-uncased-yelp-polarity" # change this to use a different pretrained checkpoint and tokenizer
+  learning_rate: 5e-05
+  finetuned: "checkpoints/textattack-bert-base-uncased-yelp-polarity_1xTesla-T4_LR5e-05_BS16_2024-01-30T20:39:34.235506.ckpt"
+
+DataModuleConfig:
+  _target_: src.config.DataModuleConfig
+  dataset_name: "imdb"
+  num_classes: 2
+  batch_size: 2
+  train_split: "train"
+  test_split: "test"
+  train_size: 0.8
+  stratify_by_column: "label"
+  num_workers: 2
+
+TrainerConfig:
+  _target_: src.config.TrainerConfig
+  accelerator: "auto" # Trainer flag
+  devices: "auto" # Trainer flag
+  strategy: "auto" # Trainer flag
+  precision: "16-mixed" # Trainer flag
+  max_epochs: 1 # Trainer flag

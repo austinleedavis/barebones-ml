@@ -1,0 +1,23 @@
+[tool.pytest.ini_options]  # Configuration section for pytest options
+
+addopts = [
+  "--color=yes",        # Enable colored output in the terminal
+  "--durations=0",      # Show the slowest test durations (0 means show all)
+  "--strict-markers",   # Ensure only explicitly registered markers are used
+  "--doctest-modules",  # Run doctests in module docstrings
+]
+
+filterwarnings = [
+  "ignore::DeprecationWarning",  # Suppress all DeprecationWarning messages
+  "ignore::UserWarning",         # Suppress all UserWarning messages
+]
+
+log_cli = "True"  # Enable live logging to the terminal while tests are running
+
+markers = [
+  "slow: slow tests",  # Define a custom marker named 'slow' for slow tests
+]
+
+minversion = "6.0"  # Require at least pytest version 6.0
+
+testpaths = "tests/"  # Specify the directory where pytest should look for tests

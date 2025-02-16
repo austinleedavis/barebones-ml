@@ -1,0 +1,35 @@
+# This GitHub Actions workflow (code-quality-pr.yaml) automates code quality checks on pull requests targeting the main branch or any release/* branches. Here's a breakdown:
+
+# Workflow Name & Trigger
+name: Code Quality PR
+
+on:
+  pull_request:
+    branches: [main, "release/*"] # Runs on pull requests targeting main and release branches
+
+jobs:
+  code-quality:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Find modified files
+        id: file_changes
+        uses: trilom/file-changes-action@v1.2.4 # Identifies changed files in the PR
+        with:
+          output: " " # Outputs the list of modified files as a space-separated string
+
+      - name: List modified files
+        run: echo '${{ steps.file_changes.outputs.files}}' # Logs the changed files
+
+      - name: Run pre-commits
+        uses: pre-commit/action@v3.0.0 # Executes pre-commit hooks
+        with:
+          extra_args: --files ${{ steps.file_changes.outputs.files}} # Runs only on modified files to save time

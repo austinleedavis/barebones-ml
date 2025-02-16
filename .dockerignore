@@ -1,0 +1,15 @@
+# .dockerignore - Excludes unnecessary files from the Docker build context
+#
+# - Ignores everything by default (*)
+# - Includes essential files: requirements.txt, setup.py, and the src/ directory
+# - Reduces image size and speeds up build process
+#
+# Format:
+# *  - Ignore all files
+# !<file-or-dir> - Include specific files or directories
+#
+
+*
+!requirements.txt
+!setup.py
+!src/

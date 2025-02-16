@@ -1,0 +1,33 @@
+# --------- pytorch --------- #
+torch==2.6
+torchvision
+
+# --------- huggingface --------- #
+datasets
+transformers
+numpy
+
+# --------- hydra --------- #
+hydra-core
+hydra-colorlog
+hydra-optuna-sweeper
+omegaconf
+
+# --------- loggers --------- #
+wandb
+
+# --------- others --------- #
+pyrootutils # project root setup
+pre-commit<4 # managing and maintaining pre-commit hooks. (v4.0.1+ breaks docformatter)
+rich # Render rich text, tables, progress bars, syntax highlighting, markdown etc to the terminal
+pytest # simple powerful testing with Python
+sh; platform_system != 'Windows'
+tqdm # Fast, Extensible Progress Meter
+pynvml # Python utilities for the NVIDIA Management Library
+chess # A chess library with move generation and validation, etc.
+
+# --------- visualization --------- #
+seaborn
+scikit_learn
+matplotlib
+ipython

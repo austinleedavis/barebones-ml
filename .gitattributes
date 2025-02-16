@@ -1,0 +1,22 @@
+# .gitattributes - Configures Git attributes for specific file types
+#
+# - Ensures YAML files are detected correctly by GitHub Linguist
+# - Tracks large model and data files using Git LFS (Large File Storage)
+#
+# Format:
+# <pattern> <attribute>  - Assigns attributes to files matching the pattern
+#
+
+# Ensure YAML files are properly recognized by GitHub Linguist
+
+*.yml linguist-detectable=true
+*.yml linguist-language=YAML
+*.yaml linguist-detectable=true
+*.yaml linguist-language=YAML
+
+
+# Store large files in Git LFS (reduces repo size and prevents slow clones)
+*.onnx filter=lfs diff=lfs merge=lfs -text
+*.engine filter=lfs diff=lfs merge=lfs -text
+*.ckpt filter=lfs diff=lfs merge=lfs -text
+*.json filter=lfs diff=lfs merge=lfs -text

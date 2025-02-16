@@ -2,7 +2,7 @@
 help:  ## Show help
 	@grep -E '^[.a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-initialize-fresh: erase-git build-docker init-git ## initialize the development environment (WARNING: This resets the local git repo!)
+initialize-fresh: erase-git docker-build init-git ## initialize the development environment (WARNING: This resets the local git repo!)
 
 full-reset-git: erase-git init-git ## delete .git and reinitialize repo with pre-commit settings (WARNING: This resets the local git repo!)
 
@@ -17,7 +17,7 @@ init-git: ## Initialize a fresh git repository (only if one doesn't already exis
 	git config --global --add safe.directory /workspace
 	pre-commit install
 
-build-docker: ## initialize the development environment
+docker-build: ## initialize the development environment
 	set -o errexit
 	export DOCKER_BUILDKIT=1
 	export PROGRESS_NO_TRUNC=1

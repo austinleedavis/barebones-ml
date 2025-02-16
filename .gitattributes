@@ -15,8 +15,8 @@
 *.yaml linguist-language=YAML
 
 
-# Store large files in Git LFS (reduces repo size and prevents slow clones)
-*.onnx filter=lfs diff=lfs merge=lfs -text
-*.engine filter=lfs diff=lfs merge=lfs -text
-*.ckpt filter=lfs diff=lfs merge=lfs -text
-*.json filter=lfs diff=lfs merge=lfs -text
+# (Optional) Store specific filetypes using Git LFS (reduces repo size and prevents slow clones)
+# *.onnx filter=lfs diff=lfs merge=lfs -text 
+# *.engine filter=lfs diff=lfs merge=lfs -text
+# *.ckpt filter=lfs diff=lfs merge=lfs -text
+# *.json filter=lfs diff=lfs merge=lfs -text

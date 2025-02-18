@@ -1,0 +1,7 @@
+from_pretrained:
+  _target_: transformers.GPT2LMHeadModel.from_pretrained
+  pretrained_model_name_or_path: austindavis/chessGPT_d12
+tokenizer:
+  instance:
+    _target_: src.chess_tokenizers.UciTileTokenizer
+    upper_promotions: true

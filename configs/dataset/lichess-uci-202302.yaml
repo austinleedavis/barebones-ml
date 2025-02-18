@@ -1,0 +1,34 @@
+load_dataset:
+  _target_: datasets.load_dataset
+  path: austindavis/lichess-uci
+  name: "202302"
+  split: train
+transforms:
+  - type: filter
+    callable: "lambda w,b: w>1500 and b>1500"
+    kwargs:
+      desc: "Filter Player Elo"
+      input_columns: ["WhiteElo", "BlackElo"]
+      num_proc: 4
+  - type: map
+    callable: "lambda t: {'transcript_len': len(t)}"
+    kwargs:
+      desc: "Compute transcript len"
+      input_columns: ["Transcript"]
+      num_proc: 4
+  - type: filter
+    callable: "lambda t: t >10 and t %5 != 4"
+    kwargs:
+      desc: "Filter Promotions"
+      input_columns: ["transcript_len"]
+      num_proc: 4
+  - type: select_columns
+    kwargs:
+      column_names: ["Transcript"]
+  - type: rename_columns
+    kwargs:
+      column_mapping:
+        Transcript: text
+  - type: train_test_split
+    kwargs:
+      test_size: 0.01

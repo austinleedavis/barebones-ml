@@ -1,5 +1,6 @@
 #!/bin/bash
 # Schedule execution of many runs
-# Run from root folder with: bash scripts/train.sh
+# Run from root folder with: bash scripts/train.sh PYTHON_ARGS
 
-python src/train.py
+nvidia-smi
+python src/train.py "$@"

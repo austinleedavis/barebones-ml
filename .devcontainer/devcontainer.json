@@ -1,6 +1,6 @@
 {
-  "name": "${localWorkspaceFolder}",
-  "image": "${localWorkspaceFolder}:latest",
+  "name": "WILL_BE_REPLACED_BY_MAKE",
+  "image": "WILL_BE_REPLACED_BY_MAKE:latest",
   "workspaceFolder": "/workspace",
   "mounts": [
     "source=${localWorkspaceFolder},target=/workspace,type=bind"

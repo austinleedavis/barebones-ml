@@ -43,25 +43,21 @@ On my system, I have a lot of free space at `/home`, but very little in docker's
 
 ## 🚀 Installation
 
-```sh
-# clone the repository into your new project directory
-git clone <repo-url> my_project
-cd my_project
+Use this template to initialize a new project on GitHub. Then run the following:
 
-# initialize the environment
-make initialize-fresh
+```sh
+git clone <repo-url> your_new_project
+cd your_new_project
+
+# modify requirements.txt as-needed then...
+
+# Build the container
+make docker-build
 ```
 
-This make command will:
+Your environment is ready, and you can already get working. Access the development environment in one of two ways:
 
-- Build a **Docker container** with all required dependencies
-- Remove the existing `.git` history
-- Initialize a new Git repository
-- Install **pre-commit hooks** for enforcing code quality
-
-After running make initialize-fresh, your environment is ready. Access the development environment in one of two ways:
-
-- **VS Code DevContainer**: Open the project in VS Code, install the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers), and select "***Dev Containers: Reopen in Container***" from the command palette to work inside the Docker environment.
+- **VS Code DevContainer**: Open the project in VS Code, install the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers), and select "***Dev Containers: Reopen in Container***" from the command palette (**`Ctrl+Shift+P`**) to work inside the Docker environment.
 
 - **Docker Run Command**: Dispatch scipts to be run on the container using, e.g.:
 

@@ -5,6 +5,7 @@ data/*
 models/*
 wandb/
 outputs/
+node_nodules/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

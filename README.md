@@ -101,6 +101,13 @@ Your environment is ready, and you can already get working. Access the developme
 
 ## 📝 Notes
 
-- **Configurations**: Modify `configs/train.yaml` and `configs/paths/default.yaml` to adjust training settings and paths.
-- **Logs & Checkpoints**: Stored in `logs/` and `models/` respectively.
+- **Configurations**: Modify `configs/train.yaml` to adjust training settings.
+- **Logs & Checkpoints**: Stored in `outputs/` and `models/` respectively.
 - **Extensibility**: Add new scripts to `scripts/` or modify `Makefile` for custom workflows.
+
+## 💡 Recommendations
+
+- Run `make format` to run the pre-commit hooks before commiting your code.
+- Update `requirements.txt` whenever you install a new package in the container.
+- The `configs/` folder is just a template. Consider cloning it outside the code base for day-to-day experiments. Then use the command-line flags `--config-path` (`-cp`) and `--config-name` (`-cn`) to direct hydra to those external locations. See Hydra's [article on command line flags](https://hydra.cc/docs/advanced/hydra-command-line-flags) for more details.
+- Run `make help` for more commands
